@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    tags:
+    - '*'
+jobs:
+    test-curl-action:
+        name: 'Perform REST API'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Call API'
+              uses: indiesdev/curl@v1
+              id: api
+              with:
+                url: https://api.github.com/repos/rizwanejaznisum/test-repo/releases
+                method: 'GET'
+                headers: '{"Authorization": "token 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"}'
+            - name: 'Use response'
+              run: echo ${{ steps.api.outputs.response }}
