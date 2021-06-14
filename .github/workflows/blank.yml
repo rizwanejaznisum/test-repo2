@@ -12,11 +12,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: 'Call API'
-              uses: indiesdev/curl@v1
+              #uses: indiesdev/curl@v1
               id: api
-              with:
-                url: https://api.github.com/repos/rizwanejaznisum/test-repo2/releases
-                method: 'GET'
-                headers: '{"Authorization": "Basic cml6d2FuZWphem5pc3VtOm5pc3VtMTIz"}'
+#               with:
+#                 url: https://api.github.com/repos/rizwanejaznisum/test-repo2/releases
+#                 method: 'GET'
+#                 headers: '{"Authorization": "Basic cml6d2FuZWphem5pc3VtOm5pc3VtMTIz"}'
+              run: |
+                  curl --fail --request GET --header "Authorization: Basic cml6d2FuZWphem5pc3VtOm5pc3VtMTIz" --url "https://api.github.com/repos/rizwanejaznisum/test-repo2/releases"
             - name: 'Use response'
               run: echo ${{ steps.api.outputs.response }}
