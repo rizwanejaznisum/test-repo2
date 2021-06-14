@@ -17,6 +17,6 @@ jobs:
               with:
                 url: https://api.github.com/repos/rizwanejaznisum/test-repo2/releases
                 method: 'GET'
-                headers: '{"Authorization", "token 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"}'
+                headers: '{"Authorization": "token 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"}'
             - name: 'Use response'
               run: echo ${{ steps.api.outputs.response }}
